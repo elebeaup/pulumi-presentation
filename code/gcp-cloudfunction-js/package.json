@@ -1,0 +1,9 @@
+{
+    "name": "gcp-javascript",
+    "main": "index.js",
+    "dependencies": {
+        "@pulumi/gcp": "latest",
+        "@pulumi/pulumi": "latest",
+        "node-emoji": "^1.10.0"
+    }
+}

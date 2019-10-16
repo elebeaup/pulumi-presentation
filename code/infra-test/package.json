@@ -1,0 +1,15 @@
+{
+  "name": "aws-javascript",
+  "main": "index.js",
+  "scripts": {
+    "test": "PULUMI_TEST_MODE=true PULUMI_NODEJS_STACK=dev PULUMI_NODEJS_PROJECT=infra-test mocha"
+  },
+  "dependencies": {
+    "@pulumi/pulumi": "^1.0.0",
+    "@pulumi/aws": "^1.0.0",
+    "@pulumi/awsx": "^0.18.10"
+  },
+  "devDependencies": {
+    "mocha": "^6.2.1"
+  }
+}

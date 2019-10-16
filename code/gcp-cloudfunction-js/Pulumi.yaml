@@ -1,0 +1,4 @@
+name: gcp-cloudfunction-js
+runtime: nodejs
+backend:
+  url: file://.

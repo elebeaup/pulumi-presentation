@@ -1,0 +1,255 @@
+/*********************************************
+ * GLOBAL STYLES
+ *********************************************/
+body {
+  background: #f0f1eb;
+  background-color: #f0f1eb;
+}
+
+/*********************************************
+ * FONTS
+ *********************************************/
+@font-face {
+  font-family: "Montserrat";
+  src: url("../fonts/Montserrat-Light.ttf");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("../fonts/Montserrat-ExtraLight.ttf");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("../fonts/Montserrat-Regular.ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("../fonts/Montserrat-Medium.ttf");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("../fonts/Montserrat-SemiBold.ttf");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("../fonts/Montserrat-Bold.ttf");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("../fonts/Montserrat-ExtraBold.ttf");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Consolas";
+  src: url("../fonts/Consolas.ttf");
+}
+
+@font-face {
+  font-family: "Consolas";
+  src: url("../fonts/Consolaz.ttf");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Inconsolata";
+  src: url("../fonts/Inconsolata-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Inconsolata";
+  src: url("../fonts/Inconsolata-Bold.ttf");
+  font-weight: 800;
+  font-style: normal;
+}
+
+.reveal {
+  font-family: "Montserrat", Helvetica, Arial, sans-serif;
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal .slides section.with-code h1,
+.reveal .slides section.with-code h2 {
+  font-family: "Montserrat", Helvetica, sans-serif;
+  font-weight: 600;
+}
+
+/*********************************************
+ * OTHER
+ *********************************************/
+.reveal .talk-title {
+  color: #ea951b;
+  text-transform: uppercase;
+}
+
+cite {
+  font-size: 0.5em;
+}
+
+.reveal .slides section:not(.center) {
+  width: 100%;
+  height: calc(100% - 40px);
+}
+
+.speaker-name {
+  color: white;
+  margin: 1em;
+}
+
+.speaker-summary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+img.speaker-img {
+  height: 6em;
+  height: 6em;
+  border-radius: 100%;
+  margin: 1em;
+}
+
+.twitter {
+  color: #1da1f2;
+}
+
+.twitter::before {
+  background: url("../assets/twitter_bird.svg") no-repeat;
+  background-size: 1em 1em;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  content: "";
+  position: relative;
+  vertical-align: middle;
+}
+
+.reveal .slides img {
+  border: none;
+  box-shadow: none;
+}
+
+.content {
+  display: flex;
+  height: 80%;
+}
+
+.content-1,
+.content-2 {
+  flex: 1;
+  padding: 1em;
+}
+
+.content--center {
+  justify-content: center;
+  align-items: center;
+}
+
+.reveal .slides .thumbnail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.reveal .slides .thumbnail img {
+  margin: 1em;
+  height: 3.5em;
+}
+
+.reveal blockquote {
+  box-shadow: none;
+  width: 100%;
+}
+
+.reveal {
+  font-size: 32px;
+}
+
+.text--medium {
+  font-size: 1.5em;
+}
+
+.text--large {
+  font-size: 2em;
+}
+
+.text--xlarge {
+  font-size: 4em;
+}
+
+.reveal pre {
+  background-color: rgb(39, 40, 34);
+  font-size: 0.75em;
+}
+
+split-view {
+  height: 100%;
+}
+
+split-view.split-view-template--3-2 {
+  grid-template-columns: 3fr 2fr;
+}
+
+.reveal .slides section.demoit {
+  height: calc(100% - 60px);
+  display: flex !important;
+  flex-direction: column;
+}
+
+.content > ul {
+  display: flex;
+  flex-direction: column;
+  height: 80%;
+  justify-content: space-around;
+}
+
+.content > ul li {
+  list-style: none;
+}
+
+pre.code--small {
+  font-size: 0.5em;
+}
+
+.reveal pre code {
+  display: block;
+  padding: 5px;
+  overflow: auto;
+  max-height: 600px;
+  word-wrap: normal;
+}
+
+div.slide-background:not([data-background-hash])::before {
+  background-image: url("../assets/DevFest2019_LOGO.png");
+  background-size: 100px 31px;
+  display: inline-block;
+  width: 100px;
+  height: 31px;
+  content: "";
+  position: fixed;
+  bottom: 30px;
+  left: 10px;
+}

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>
+      Infrastructure As Code, il n'y a pas que Terraform dans la vie
+    </title>
+
+    <link rel="icon" href="favicon.ico" />
+
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/reveal.css" />
+    <link rel="stylesheet" href="css/theme/white.css" />
+
+    <link rel="stylesheet" href="css/custom.css" />
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/monokai.css" />
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.type = "text/css";
+      link.href = window.location.search.match(/print-pdf/gi)
+        ? "css/print/pdf.css"
+        : "css/print/paper.css";
+      document.getElementsByTagName("head")[0].appendChild(link);
+    </script>
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section
+          class="center"
+          data-background-opacity="0.9"
+          data-background="assets/back-devfest2019.jpg"
+        >
+          <h2 class="talk-title">
+            Infrastructure As Code, il n'y a pas que Terraform dans la vie
+          </h2>
+          <div class="speaker-summary">
+            <span class="speaker-name">Emmanuel Lebeaupin</span
+            ><img class="speaker-img" src="assets/emmanuel-lebeaupin.jpg" />
+          </div>
+          <span class="twitter">@elebeaup</span>
+        </section>
+
+        <section class="center">
+          <p class="text--large">Pourquoi ce talk ?</p>
+        </section>
+
+        <section>
+          <div class="content">
+            <div class="content-1">
+              <img src="assets/pulumi.png" />
+              <h6>Modern Infrastructure as Code</h6>
+              <blockquote class="blockquote--small">
+                “Declare cloud infrastructure using real languages.”
+                <cite>pulumi.com</cite>
+              </blockquote>
+              <ul>
+                <li>Développé depuis fin 2016</li>
+                <li>Dévoilé au public en 2018</li>
+                <li>Open source - https://github.com/pulumi</li>
+                <li>Pulumi 1.0 - 05/09/2019</li>
+              </ul>
+            </div>
+            <div class="content-2">
+              <img class="speaker-img" src="assets/joe-duffy.jpg" />
+              <img class="speaker-img" src="assets/eric-rudder.jpg" />
+              <p class="legend">Joe Duffy & Eric Rudder</p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Multi-Language runtime</h2>
+          <div class="content content--center">
+            <div class="thumbnail">
+              <img src="assets/typescript.png" />
+              <img src="assets/javascript.png" />
+              <img src="assets/python.png" />
+              <img src="assets/golang.png" />
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Multi-cloud</h2>
+          <div class="content thumbnail">
+            <img src="assets/aws.svg" />
+            <img src="assets/gcp.svg" />
+            <img src="assets/azure.svg" />
+            <img src="assets/openstack.png" />
+          </div>
+        </section>
+
+        <section>
+          <h2>Multi-Technology Scope</h2>
+          <div class="content content--center">
+            <img src="assets/kubernetes.png" />
+          </div>
+        </section>
+
+        <section>
+          <h2>Multi-Technology Scope</h2>
+          <div class="content thumbnail">
+            <img src="assets/MySQL.png" />
+            <img src="assets/postgresql.png" />
+            <img src="assets/gitlab.png" />
+          </div>
+        </section>
+
+        <section>
+          <h2>Architecture</h2>
+          <div class="content content--center">
+            <img src="assets/engine-block-diagram.png" />
+          </div>
+        </section>
+
+        <section>
+          <h2>State storage</h2>
+          <div class="content content--center text--medium">
+            <ul>
+              <li>local</li>
+              <li class="fragment">
+                Cloud storage (AWS S3, Azure Blob, GCP Google Cloud Storage)
+              </li>
+              <li class="fragment">Pulumi service</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2>Ressources</h2>
+          <pre>
+					<code class="hljs javascript" data-trim>
+						const res = new Resource(name, args, options)
+					</code>
+				</pre>
+
+          <pre class="fragment">
+					<code class="hljs javascript" data-trim contenteditable>
+            const server = new aws.ec2.Instance("web-server", {
+                ami: "ami-5189a661",
+                instanceType: "t2.micro",
+                ...
+            });
+					</code>
+				</pre>
+        </section>
+
+        <!-- <section>
+          <h2>Cli</h2>
+          <div class="content content--center text--medium">
+            <ul>
+              <li>pulumi new</li>
+              <li class="fragment">pulumi login</li>
+              <li class="fragment">pulumi stack</li>
+              <li class="fragment">pulumi preview</li>
+              <li class="fragment">pulumi up</li>
+              <li class="fragment">pulumi logs</li>
+            </ul>
+          </div>
+        </section> -->
+
+        <section class="demoit">
+          <split-view class="split-view-template--3-2">
+            <web-term path="code/container"></web-term>
+            <web-browser src="http://127.0.0.1:30001/"></web-browser>
+          </split-view>
+        </section>
+
+        <section class="demoit">
+          <p class="text--large">Magic Functions</p>
+          <web-term path="code/gcp-cloudfunction-js"></web-term>
+        </section>
+
+        <section class="center">
+          <img src="assets/bucket-trigger.png" />
+        </section>
+
+        <!-- <section class="center">
+          <pre>
+             <code class="hljs javascript" data-trim>
+                exports.hello = (event) => {
+                  console.log('Highway to hell!!!', JSON.stringify(event));
+                };
+            </code>
+          </pre>
+        </section> -->
+
+        <section class="center">
+          <pre class="code--small">
+           <code class="hljs" data-trim data-noescape>
+              resource "google_storage_bucket" "test" {
+                name     = "test"
+              }
+              
+              <div class="fragment">// Create a GCS Bucket containing the zip archive which contains the function.
+              resource "google_storage_bucket" "hello_function" {
+                name = "hello-function"
+              }</div>
+              
+              <div class="fragment">// The archive object which contains the function.
+              resource "google_storage_bucket_object" "archive" {
+                name   = "index.zip"
+                bucket = "${google_storage_bucket.bucket_hello_function.name}"
+                source = "./app"
+              }</div>
+
+              <div class="fragment">// The function
+              resource "google_cloudfunctions_function" "hello_function" {
+                name                  = "hello"
+                runtime               = "nodejs10"
+              
+                source_archive_bucket = "${google_storage_bucket.hello_function.name}"
+                source_archive_object = "${google_storage_bucket_object.archive.name}"
+              
+                event_trigger {
+                  event_type          = "google.storage.object.finalize"
+                  resource            = "${google_storage_bucket.test.name}"
+                }
+              }</div>              
+         </code>
+        </pre>
+        </section>
+
+        <section class="center">
+          <pre class="code--small">
+             <code class="hljs javascript" data-trim data-noescape data-line-numbers>
+                const hello = require('./app');
+
+                const testBucket = new gcp.storage.Bucket("bucket", {
+                });
+                
+                // Cloud Function
+                testBucket.onObjectFinalized("hello", hello);                 
+           </code>
+          </pre>
+        </section>
+
+        <section class="demoit">
+          <p class="text--large">Et les tests ?</p>
+          <web-term path="code/infra-test"></web-term>
+        </section>
+
+        <section
+          class="center"
+          data-background-opacity="0.4"
+          data-background="assets/rocco-caruso-h4jXGhm8wuA-unsplash.jpg"
+        >
+          <p class="text--xlarge">Merci</p>
+        </section>
+      </div>
+    </div>
+
+    <script src="js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        center: false,
+        width: 1280,
+        height: 720,
+        history: true,
+
+        dependencies: [
+          { src: "plugin/markdown/marked.js" },
+          { src: "plugin/markdown/markdown.js" },
+          { src: "plugin/notes/notes.js", async: true },
+          { src: "plugin/highlight/highlight.js", async: true },
+          { src: "js/demoit/demoit.js", async: true }
+        ]
+      });
+    </script>
+  </body>
+</html>
