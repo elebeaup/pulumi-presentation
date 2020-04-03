@@ -1,89 +1,66 @@
 /*********************************************
  * GLOBAL STYLES
  *********************************************/
-body {
-  background: #f0f1eb;
-  background-color: #f0f1eb;
+:root {
+  --color-red-rgb: 221, 51, 85;
+  --color-red: rgba(var(--color-red-rgb), 1);
+
 }
 
 /*********************************************
  * FONTS
  *********************************************/
 @font-face {
-  font-family: "Montserrat";
-  src: url("../fonts/Montserrat-Light.ttf");
-  font-weight: 300;
+  font-family: "Poppins";
+  src: url("../fonts/Poppins-Regular.ttf");
+  font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Montserrat";
-  src: url("../fonts/Montserrat-ExtraLight.ttf");
-  font-weight: 100;
-  font-style: normal;
+  font-family: "Poppins";
+  src: url("../fonts/Poppins-Italic.ttf");
+  font-weight: normal;
+  font-style: italic;
 }
 
 @font-face {
-  font-family: "Montserrat";
-  src: url("../fonts/Montserrat-Regular.ttf");
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Montserrat";
-  src: url("../fonts/Montserrat-Medium.ttf");
-  font-weight: 500;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Montserrat";
-  src: url("../fonts/Montserrat-SemiBold.ttf");
-  font-weight: 600;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Montserrat";
-  src: url("../fonts/Montserrat-Bold.ttf");
-  font-weight: 700;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Montserrat";
-  src: url("../fonts/Montserrat-ExtraBold.ttf");
-  font-weight: 800;
+  font-family: "Poppins";
+  src: url("../fonts/Poppins-Bold.ttf");
+  font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Consolas";
   src: url("../fonts/Consolas.ttf");
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
   font-family: "Consolas";
   src: url("../fonts/Consolaz.ttf");
-  font-weight: 800;
+  font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Inconsolata";
   src: url("../fonts/Inconsolata-Regular.ttf");
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
   font-family: "Inconsolata";
   src: url("../fonts/Inconsolata-Bold.ttf");
-  font-weight: 800;
-  font-style: normal;
+  font-weight: normal;
+  font-style: bold;
 }
 
 .reveal {
-  font-family: "Montserrat", Helvetica, Arial, sans-serif;
+  font-family: "Poppins", Helvetica, Arial, sans-serif;
 }
 
 .reveal h1,
@@ -92,16 +69,45 @@ body {
 .reveal h4,
 .reveal .slides section.with-code h1,
 .reveal .slides section.with-code h2 {
-  font-family: "Montserrat", Helvetica, sans-serif;
-  font-weight: 600;
+  font-family: "Poppins", Helvetica, sans-serif;
+  font-style: unset;
+  text-transform: unset;
+  color: unset;
+}
+
+.reveal .slides h2 {
+  text-align: left;
+  position: relative;
+  text-align: left;
+  font-weight: bold;
+}
+
+.reveal h2:after {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 40%;
+  border-bottom: 0.15em solid var(--color-red);
 }
 
 /*********************************************
  * OTHER
  *********************************************/
+section {
+  display: flex!important;
+  top: 0!important;
+  height: calc(100% - 40px);
+  flex-direction: column;
+}
+
+section.center {
+  align-items: center;
+  justify-content: center;
+}
+
 .reveal .talk-title {
   color: #ea951b;
-  text-transform: uppercase;
+  font-size: 1.6em;
 }
 
 cite {
@@ -110,11 +116,13 @@ cite {
 
 .reveal .slides section:not(.center) {
   width: 100%;
-  height: calc(100% - 40px);
+}
+
+.reveal .slides section[data-background] {
+  color: white;
 }
 
 .speaker-name {
-  color: white;
   margin: 1em;
 }
 
@@ -124,11 +132,12 @@ cite {
   justify-content: center;
 }
 
-img.speaker-img {
+.reveal .slides img.speaker-img {
   height: 6em;
   height: 6em;
   border-radius: 100%;
   margin: 1em;
+  border: 3pt solid var(--color-red);
 }
 
 .twitter {
@@ -156,15 +165,16 @@ img.speaker-img {
   height: 80%;
 }
 
+.content-list-item {
+  font-size: 1.5em;
+  justify-content: center;
+  align-items: center;
+}
+
 .content-1,
 .content-2 {
   flex: 1;
   padding: 1em;
-}
-
-.content--center {
-  justify-content: center;
-  align-items: center;
 }
 
 .reveal .slides .thumbnail {
@@ -188,38 +198,24 @@ img.speaker-img {
   font-size: 32px;
 }
 
-.text--medium {
-  font-size: 1.5em;
-}
-
-.text--large {
-  font-size: 2em;
-}
-
-.text--xlarge {
-  font-size: 4em;
-}
-
 .reveal pre {
   background-color: rgb(39, 40, 34);
   font-size: 0.75em;
 }
 
 split-view {
-  height: 100%;
+  height: 95%;
 }
 
 split-view.split-view-template--3-2 {
   grid-template-columns: 3fr 2fr;
 }
 
-.reveal .slides section.demoit {
-  height: calc(100% - 60px);
-  display: flex !important;
-  flex-direction: column;
+section > web-term {
+  height: calc(100% - 120px);
 }
 
-.content > ul {
+.content-list-item > ul {
   display: flex;
   flex-direction: column;
   height: 80%;
@@ -242,14 +238,18 @@ pre.code--small {
   word-wrap: normal;
 }
 
-div.slide-background:not([data-background-hash])::before {
-  background-image: url("../assets/DevFest2019_LOGO.png");
+section:not(:first-child)::before {
+  background-image: url("../assets/sfeir-logo-black.png");
   background-size: 100px 31px;
   display: inline-block;
   width: 100px;
   height: 31px;
   content: "";
   position: fixed;
-  bottom: 30px;
+  bottom: 5px;
   left: 10px;
+}
+
+section[data-background]:not(:first-child)::before {
+  background-image: url("../assets/sfeir-logo-white.png");
 }

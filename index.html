@@ -39,12 +39,11 @@
       <div class="slides">
         <section
           class="center"
-          data-background-opacity="0.9"
-          data-background="assets/back-devfest2019.jpg"
+          data-background="assets/sfeir-master1.png"
         >
-          <h2 class="talk-title">
+          <h1 class="talk-title">
             Infrastructure As Code, il n'y a pas que Terraform dans la vie
-          </h2>
+          </h1>
           <div class="speaker-summary">
             <span class="speaker-name">Emmanuel Lebeaupin</span
             ><img class="speaker-img" src="assets/emmanuel-lebeaupin.jpg" />
@@ -53,7 +52,7 @@
         </section>
 
         <section class="center">
-          <p class="text--large">Pourquoi ce talk ?</p>
+          <h1>Pourquoi ce talk ?</h1>
         </section>
 
         <section>
@@ -82,7 +81,7 @@
 
         <section>
           <h2>Multi-Language runtime</h2>
-          <div class="content content--center">
+          <div class="content content-list-item">
             <div class="thumbnail">
               <img src="assets/typescript.png" />
               <img src="assets/javascript.png" />
@@ -104,7 +103,7 @@
 
         <section>
           <h2>Multi-Technology Scope</h2>
-          <div class="content content--center">
+          <div class="content content-list-item">
             <img src="assets/kubernetes.png" />
           </div>
         </section>
@@ -120,14 +119,14 @@
 
         <section>
           <h2>Architecture</h2>
-          <div class="content content--center">
+          <div class="content content-list-item">
             <img src="assets/engine-block-diagram.png" />
           </div>
         </section>
 
         <section>
           <h2>State storage</h2>
-          <div class="content content--center text--medium">
+          <div class="content content-list-item">
             <ul>
               <li>local</li>
               <li class="fragment">
@@ -159,7 +158,7 @@
 
         <!-- <section>
           <h2>Cli</h2>
-          <div class="content content--center text--medium">
+          <div class="content content-list-item text--medium">
             <ul>
               <li>pulumi new</li>
               <li class="fragment">pulumi login</li>
@@ -179,7 +178,7 @@
         </section>
 
         <section class="demoit">
-          <p class="text--large">Magic Functions</p>
+          <h2>Magic Functions</h2>
           <web-term path="code/gcp-cloudfunction-js"></web-term>
         </section>
 
@@ -203,12 +202,12 @@
               resource "google_storage_bucket" "test" {
                 name     = "test"
               }
-              
+
               <div class="fragment">// Create a GCS Bucket containing the zip archive which contains the function.
               resource "google_storage_bucket" "hello_function" {
                 name = "hello-function"
               }</div>
-              
+
               <div class="fragment">// The archive object which contains the function.
               resource "google_storage_bucket_object" "archive" {
                 name   = "index.zip"
@@ -220,15 +219,15 @@
               resource "google_cloudfunctions_function" "hello_function" {
                 name                  = "hello"
                 runtime               = "nodejs10"
-              
+
                 source_archive_bucket = "${google_storage_bucket.hello_function.name}"
                 source_archive_object = "${google_storage_bucket_object.archive.name}"
-              
+
                 event_trigger {
                   event_type          = "google.storage.object.finalize"
                   resource            = "${google_storage_bucket.test.name}"
                 }
-              }</div>              
+              }</div>
          </code>
         </pre>
         </section>
@@ -240,24 +239,23 @@
 
                 const testBucket = new gcp.storage.Bucket("bucket", {
                 });
-                
+
                 // Cloud Function
-                testBucket.onObjectFinalized("hello", hello);                 
+                testBucket.onObjectFinalized("hello", hello);
            </code>
           </pre>
         </section>
 
         <section class="demoit">
-          <p class="text--large">Et les tests ?</p>
+          <h2>Et les tests ?</h2>
           <web-term path="code/infra-test"></web-term>
         </section>
 
         <section
           class="center"
-          data-background-opacity="0.4"
-          data-background="assets/rocco-caruso-h4jXGhm8wuA-unsplash.jpg"
+          data-background="assets/sfeir-master1.png"
         >
-          <p class="text--xlarge">Merci</p>
+          <h1>Merci</p>
         </section>
       </div>
     </div>
