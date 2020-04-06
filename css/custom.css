@@ -90,6 +90,23 @@
   border-bottom: 0.15em solid var(--color-red);
 }
 
+.reveal h1.sfeir-underline {
+  position: relative;
+}
+
+.reveal h1.sfeir-underline:before {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 100%;
+  border-bottom: 0.4em solid var(--color-red);
+  transform: rotate(2deg);
+  left: -40px;
+  bottom: 0px;
+  padding: 0 40px;
+  z-index: -1;
+}
+
 /*********************************************
  * OTHER
  *********************************************/
@@ -162,7 +179,7 @@ cite {
 
 .content {
   display: flex;
-  height: 80%;
+  height: 85%;
 }
 
 .content-list-item {
@@ -175,6 +192,18 @@ cite {
 .content-2 {
   flex: 1;
   padding: 1em;
+}
+
+.content-cattle {
+  height: 11em;
+  width: 11em;
+  object-fit: cover;
+}
+
+.content-pets {
+  height: 11em;
+  width: 11em;
+  object-fit: cover;
 }
 
 .reveal .slides .thumbnail {
